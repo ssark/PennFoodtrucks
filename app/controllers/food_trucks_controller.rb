@@ -31,7 +31,7 @@ class FoodTrucksController < ApplicationController
       nonzero.each do |rate|
         sum += rate.number
       end
-      if !nonzero.empty?
+      if nonzero.length > 0
         avg = sum / nonzero.length
         @ft_to_rate[ft] = avg
       end
