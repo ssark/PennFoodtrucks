@@ -14,9 +14,9 @@
   <tbody>
     <% @ft_to_rate.keys.each do |food_truck| %>
       <tr class="hoverable">
-        <td><%= link_to food_truck.name, food_truck %></td>
+        <td><%= food_truck.name %></td>
         <td><%= food_truck.cuisine %></td>
-        <% if food_truck.is_open? %>
+        <% if food_truck.open? %>
           <td><span class="green-text text-darken-2">open</span></td>
         <% else %>
             <td><span class="red-text text-darken-2">closed</span></td>
@@ -36,4 +36,4 @@
             return $(this).attr('data-score');
     }
   });
-</script>
+</script

@@ -19,7 +19,7 @@ class FoodTrucksController < ApplicationController
   end
 
   def whats_good
-    @ft_to_rate = {}
+     @ft_to_rate = {}
     FoodTruck.all.each do |ft|
       nonzero = []
       sum = 0
@@ -36,7 +36,7 @@ class FoodTrucksController < ApplicationController
         @ft_to_rate[ft] = avg
       end
     end
-    @ft_to_rate = @ft_to_rate.sort_by { |_key, value| value }.reverse.to_h
+    @ft_to_rate = @ft_to_rate.sort_by {|_key, value| value}.reverse.to_h
     render 'whats_good'
   end
 
