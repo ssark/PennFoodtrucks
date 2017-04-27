@@ -71,12 +71,12 @@ class FoodTrucksController < ApplicationController
 
   private
 
-    def set_food_truck
-      @food_truck = FoodTruck.find(params[:id])
-    end
+  def set_food_truck
+    @food_truck = FoodTruck.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def food_truck_params
-      params.require(:food_truck).permit(:cuisine, :open, :close)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def food_truck_params
+    params.require(:food_truck).permit(:cuisine, :open, :close)
+  end
 end
