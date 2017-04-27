@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cuisine: MyString
+  open: 1
+  close: 1
+
+two:
+  cuisine: MyString
+  open: 1
+  close: 1

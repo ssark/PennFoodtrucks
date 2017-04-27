@@ -1,0 +1,27 @@
+<style> 
+.nav-wrapper {
+  background-color: #F34213;
+  border-color: #F34213;
+}
+</style>
+
+
+ <nav style="left">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">  Penn Foodtrucks</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li class="hoverable"><a href="/food_trucks">Food Trucks</a></li>
+        <li class="hoverable"><a href="/whats_good">What's Good?</a></li>
+        <li class="hoverable"><a href="/whats_open">What's Open?</a></li>
+        <li class="hoverable"><a href="/random_food_truck">Random Food Truck</a></li>
+        <li class="hoverable"><a href="/sort_by_cuisine">Find by Cuisine</a></li>
+        <% if logged_in? %>
+    <li><%= link_to current_user.name, user_path(current_user.id) %></li>
+    <li><%= link_to 'Log out', logout_path, method: :delete%></li>
+  <% else %>
+    <li class="hoverable"><%= link_to 'Log in', login_path %></li>
+    <li class="hoverable"><%= link_to 'Sign up', new_user_path %></li>
+  <% end %>
+      </ul>
+    </div>
+  </nav>

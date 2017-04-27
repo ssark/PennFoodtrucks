@@ -1,0 +1,77 @@
+<style> 
+#rcorners {
+    border-radius: 25px;
+    border: 2px solid #654321;
+    padding-left: 18px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    width: 260px;
+    height: 170px;
+    font-family: 'Maven Pro', sans-serif; 
+}
+
+#box {
+    width: 1000px;
+    font-family: 'Maven Pro', sans-serif; 
+}
+
+.blockquote_teal {
+  border-left-color: 654321;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+#b {
+  color: 654321;
+}
+
+
+</style>
+<link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700" rel="stylesheet">
+
+<h1 style="position:relative;left:20px;"><%= @food_truck.name %></h1>
+
+<div style="position:relative;left:20px;" id="rcorners">
+  <% if logged_in? %>
+      <b style="position:relative;top:10px" id="b">RATING:</b>
+      <div style="position:relative;left:68px;bottom:9px;" class="user_star"></div>
+  <% end %>
+<p style="position:relative;bottom:20px"><b>LOCATION: </b> <%=@food_truck.location%></p>
+
+<p style="position:relative;bottom:28px"><b>CUISINE: </b> <%=@food_truck.cuisine%></p>
+
+<p style="position:relative;bottom:37px"><b>TIMES: </b><%= @food_truck.convert(@food_truck.open) + ' to ' +  @food_truck.convert(@food_truck.close) %></p>
+
+<% if @status.eql?('open') %>
+    <p style="position:relative;bottom:48px" class="green-text"><b>[open]</b></p>
+<% else %>
+    <p style="position:relative;bottom:48px" class="red-text"><b>[closed]</b></p>
+<% end %>
+
+</div>
+
+<blockquote style="position:relative;left:20px;" class="flow-text blockquote_teal" id="box">
+<%= @food_truck.desc %>
+</blockquote>
+
+<a style="position:relative;left:18px;" class="waves-effect waves-light btn-large" href="/food_trucks">Back</a>
+
+
+<% if logged_in? %>
+<script>
+    $('.user_star').raty({
+    score: <%= @rating.number %>,
+    path: '/assets',
+    click: function(score, evt) {
+      $.ajax({
+        url: '/food_trucks/' + <%= @food_truck.id %> + '/ratings/' + <%= @rating.id %>,
+        type: 'PATCH',
+        data: { score: score }
+      });
+    }
+  });
+</script>
+<% end %>
+
+
+

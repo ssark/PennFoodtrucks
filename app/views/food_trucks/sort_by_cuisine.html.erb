@@ -1,0 +1,14 @@
+<h1> Choose a cuisine </h1>
+ <!-- Dropdown Trigger -->
+  <a style="position:relative; left:90px; "class='dropdown-button btn' href='#' data-activates='dropdown1'>Choose a Cuisine</a>
+
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><%= link_to 'Chinese', cuisine_path(:cuisine => 'Chinese')%></li>
+        <li><%= link_to 'American', cuisine_path(:cuisine => 'American')%></li>
+        <li><%= link_to 'Fruit', cuisine_path(:cuisine => 'Fruit')%></li>
+        <li><%= link_to 'Jamaican', cuisine_path(:cuisine => 'Jamaican')%></li>
+        <li><%= link_to 'Mexican', cuisine_path(:cuisine => 'Mexican')%></li>
+        <li><%= link_to 'Middle-Eastern', cuisine_path(:cuisine => 'Middle Eastern')%></li>
+        <li><%= link_to 'Vegetarian', cuisine_path(:cuisine => 'Vegetarian')%></li>
+  </ul>
