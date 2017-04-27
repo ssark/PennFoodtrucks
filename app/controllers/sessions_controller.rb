@@ -8,8 +8,11 @@ class SessionsController < ApplicationController
     if !@user.nil? && @user.password == params[:password]
       session[:user_id] = @user.id
       redirect_to @user
-    else
+    elsif @user.nil?
       flash[:notice] = 'This account doesn\'t exist'
+      redirect_to login_path
+    else
+      flash[:notice] = 'Wrong password'
       redirect_to login_path
     end
   end

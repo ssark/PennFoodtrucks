@@ -13,6 +13,8 @@ class FoodTruck < ActiveRecord::Base
   def convert(num)
     if num > 12
       (num - 12).to_s + 'pm'
+    elsif num == 12
+      num.to_s + 'pm'
     else
       num.to_s + 'am'
     end
