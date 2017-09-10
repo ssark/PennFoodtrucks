@@ -14,9 +14,9 @@ class FoodTruck < ActiveRecord::Base
     if num > 12
       (num - 12).to_s + 'pm'
     elsif num == 12
-      num.to_s + 'pm'
+      "#{num}pm"
     else
-      num.to_s + 'am'
+      "#{num}am"
     end
   end
 end
